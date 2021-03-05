@@ -2,15 +2,15 @@ function solution(numOfStage, users) {
     const answer = [];
     let totalStage = users.length
 
-    for (let stage = 1; stage <= numOfStage; stage++) {
-        const userStage = users.filter(stage => stage === stage);
+    for (let stageNow = 1; stageNow <= numOfStage; stageNow++) {
+        const userStage = users.filter(stage => stage === stageNow);
         const countUserStage = userStage.length;
         answer.push({
-            "stage": userStage,
+            "stage": stageNow,
             "failure_rate": countUserStage / totalStage
         });
 
-        totalStage -= currentTotal;
+        totalStage -= countUserStage;
     }
 
     return answer.sort((left, right) =>
